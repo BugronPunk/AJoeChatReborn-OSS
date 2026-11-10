@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f2ed" />
+    <meta
+      name="description"
+      content="A quiet place to meet and chat for a while."
+    />
+    <title>AJoeChatReborn</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <svg
+      class="icon-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="i-orbit" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" r="5" />
+        <ellipse cx="20" cy="20" rx="16" ry="7" transform="rotate(-34 20 20)" />
+        <circle class="orbit-dot" cx="31" cy="9" r="2" />
+      </symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24">
+        <path
+          d="M12 2.5 14.5 9.5 21.5 12 14.5 14.5 12 21.5 9.5 14.5 2.5 12 9.5 9.5 12 2.5Z"
+        />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path
+          d="M3.5 12h17M12 3c2.4 2.4 3.6 5.4 3.6 9s-1.2 6.6-3.6 9c-2.4-2.4-3.6-5.4-3.6-9S9.6 5.4 12 3Z"
+        />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M19.5 15.7A8 8 0 0 1 8.3 4.5 8.5 8.5 0 1 0 19.5 15.7Z" />
+        <path
+          d="m17.5 4 .6 1.8 1.9.7-1.9.6-.6 1.9-.7-1.9-1.8-.6 1.8-.7.7-1.8Z"
+        />
+      </symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path
+          d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-5.2A7.5 7.5 0 1 1 20 11.5Z"
+        />
+        <path d="M8 11.5h.1M12 11.5h.1M16 11.5h.1" stroke-width="2.5" />
+      </symbol>
+      <symbol id="i-people" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3.2" />
+        <path
+          d="M2.8 20v-1.8A4.2 4.2 0 0 1 7 14h4a4.2 4.2 0 0 1 4.2 4.2V20ZM16 5.1a3.2 3.2 0 0 1 0 6.2M18 14a4.2 4.2 0 0 1 3.2 4.1V20"
+        />
+      </symbol>
+      <symbol id="i-attach" viewBox="0 0 24 24">
+        <path
+          d="m8.8 12.8 6.5-6.5a3.5 3.5 0 0 1 5 5l-8.9 8.9a5 5 0 0 1-7.1-7.1l8.5-8.5"
+        />
+      </symbol>
+      <symbol id="i-send" viewBox="0 0 24 24">
+        <path d="m21.5 2.5-7 19-4.1-8.4L2 9l19.5-6.5ZM10.4 13.1 21.5 2.5" />
+      </symbol>
+      <symbol id="i-door" viewBox="0 0 24 24">
+        <path d="M10 4H5v16h5M14 8l4 4-4 4M8.5 12H18" />
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v3h16v-3" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18" />
+      </symbol>
+    </svg>
+
+    <main id="loginScreen" class="login-screen">
+      <header class="landing-topbar">
+        <a class="brand-lockup" href="/" aria-label="AJoeChatReborn home">
+          <span class="brand-mark"
+            ><svg><use href="#i-orbit" /></svg
+          ></span>
+          <span class="brand-word">AJoe<span>Chat</span>Reborn</span>
+        </a>
+        <div class="service-state">
+          <span class="pulse-dot"></span
+          ><span id="loginConnection">Finding your room</span>
+        </div>
+      </header>
+
+      <div class="landing-grid">
+        <section class="landing-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span> A little space to connect
+          </div>
+          <h1>Good things<br />happen <em>in the</em><br /><em>moment.</em></h1>
+          <p class="landing-lede">
+            A quiet corner of the internet for good conversations. Come as you
+            are, stay for a while.
+          </p>
+          <div class="landing-notes">
+            <div class="note-item">
+              <span class="note-icon"
+                ><svg><use href="#i-spark" /></svg></span
+              ><span>Just a name to begin</span>
+            </div>
+            <div class="note-item">
+              <span class="note-icon"
+                ><svg><use href="#i-chat" /></svg></span
+              ><span>Public rooms and private chats</span>
+            </div>
+            <div class="note-item">
+              <span class="note-icon"
+                ><svg><use href="#i-moon" /></svg></span
+              ><span>A fresh start whenever you leave</span>
+            </div>
+          </div>
+          <div class="landing-footer-note">
+            <span class="tiny-orbit"
+              ><svg><use href="#i-orbit" /></svg
+            ></span>
+            Make a little room for each other.
+          </div>
+        </section>
+
+        <section class="login-card" aria-labelledby="loginTitle">
+          <div class="card-orb orb-one"></div>
+          <div class="card-orb orb-two"></div>
+          <div class="login-card-content">
+            <div class="card-kicker">YOUR PLACE IS READY</div>
+            <h2 id="loginTitle">What should we<br />call you?</h2>
+            <p class="card-copy">
+              Choose a name and step inside. Letter case matters, so you can
+              return as the same you.
+            </p>
+            <form id="loginForm" class="login-form">
+              <label for="username">Your username</label>
+              <div class="input-wrap">
+                <span class="input-at">@</span
+                ><input
+                  id="username"
+                  name="username"
+                  autocomplete="nickname"
+                  maxlength="24"
+                  placeholder="for example, june"
+                  required
+                />
+              </div>
+              <p id="loginError" class="form-error" role="alert"></p>
+              <button id="loginButton" class="primary-button" type="submit">
+                <span>Start chatting</span><svg><use href="#i-arrow" /></svg>
+              </button>
+            </form>
+            <div class="login-card-foot">
+              <span class="privacy-dot"></span
+              ><span
+                >No account needed. Your name is yours while you are here.</span
+              >
+            </div>
+          </div>
+          <div class="card-watermark">
+            <svg><use href="#i-orbit" /></svg>
+          </div>
+        </section>
+      </div>
+
+      <footer class="landing-bottom">
+        <span>Small moments, shared gently.</span
+        ><span>Text up to 6000 characters <i>·</i> Files under 25 MB</span>
+      </footer>
+    </main>
+
+    <main id="chatScreen" class="chat-screen hidden">
+      <aside id="appSidebar" class="sidebar">
+        <div class="sidebar-top">
+          <a
+            class="brand-lockup compact"
+            href="/"
+            aria-label="AJoeChatReborn home"
+          >
+            <span class="brand-mark"
+              ><svg><use href="#i-orbit" /></svg
+            ></span>
+            <span class="brand-word">AJoe<span>Chat</span>Reborn</span>
+          </a>
+          <div class="sidebar-user">
+            <span id="userAvatar" class="avatar user-avatar">A</span>
+            <div class="user-meta">
+              <strong id="sidebarUsername"></strong
+              ><span><i class="online-dot"></i> Here now</span>
+            </div>
+            <button
+              id="leaveButton"
+              class="icon-button leave-button"
+              type="button"
+              aria-label="Leave your session"
+              title="Leave your session"
+            >
+              <svg><use href="#i-door" /></svg>
+            </button>
+          </div>
+        </div>
+        <div class="sidebar-scroll">
+          <div class="section-heading">
+            <span>PUBLIC ROOMS</span
+            ><span class="section-spark"
+              ><svg><use href="#i-spark" /></svg
+            ></span>
+          </div>
+          <nav
+            id="channelList"
+            class="channel-list"
+            aria-label="Public rooms"
+          ></nav>
+          <div class="people-heading">
+            <div class="section-heading">
+              <span>PEOPLE HERE</span
+              ><span id="onlineCount" class="count-pill">0</span>
+            </div>
+            <p>Say hello to someone new.</p>
+          </div>
+          <div id="peopleList" class="people-list"></div>
+          <div id="inviteEmpty" class="people-empty">
+            It is quiet here. Your room is still yours.
+          </div>
+        </div>
+        <div class="sidebar-bottom">
+          <span class="tiny-orbit"
+            ><svg><use href="#i-orbit" /></svg></span
+          ><span>A softer corner of the internet</span>
+        </div>
+      </aside>
+      <button
+        id="sidebarBackdrop"
+        class="sidebar-backdrop"
+        type="button"
+        aria-label="Close room menu"
+        tabindex="-1"
+      ></button>
+
+      <section class="chat-main">
+        <header class="room-header">
+          <div class="room-heading">
+            <div id="roomIcon" class="room-icon">
+              <svg><use href="#i-globe" /></svg>
+            </div>
+            <div class="room-copy">
+              <div class="room-title-line">
+                <h1 id="roomTitle">The commons</h1>
+                <span id="roomType" class="room-type">PUBLIC ROOM</span>
+              </div>
+              <p id="roomSubtitle">A room for everything</p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button
+              id="mobileMenuButton"
+              class="icon-button mobile-menu"
+              type="button"
+              aria-label="Browse rooms and people"
+              title="Browse rooms and people"
+              aria-controls="appSidebar"
+              aria-expanded="false"
+            >
+              <svg><use href="#i-people" /></svg>
+            </button>
+            <div id="roomPresence" class="room-presence">
+              <span class="online-dot"></span
+              ><span id="roomPresenceText">You are here</span>
+            </div>
+            <button
+              id="mobileLeaveButton"
+              class="icon-button mobile-leave"
+              type="button"
+              aria-label="Leave your session"
+              title="Leave your session"
+            >
+              <svg><use href="#i-door" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="incomingBar" class="incoming-bar hidden" role="status">
+          <span class="incoming-icon"
+            ><svg><use href="#i-chat" /></svg
+          ></span>
+          <div class="incoming-copy">
+            <strong id="incomingTitle">A new conversation</strong
+            ><span id="incomingText">Someone would like to chat with you.</span>
+          </div>
+          <button id="incomingOpen" class="small-button" type="button">
+            Open chat</button
+          ><button
+            id="incomingDismiss"
+            class="incoming-dismiss icon-button"
+            type="button"
+            aria-label="Dismiss"
+          >
+            <svg><use href="#i-close" /></svg>
+          </button>
+        </div>
+
+        <section
+          id="messageViewport"
+          class="message-viewport"
+          aria-label="Conversation"
+        >
+          <div id="historyTop" class="history-top hidden">
+            <button id="olderButton" class="older-button" type="button">
+              Show earlier messages
+            </button>
+          </div>
+          <div id="messageList" class="message-list"></div>
+          <div id="emptyState" class="empty-state">
+            <div class="empty-illustration">
+              <span class="illustration-halo"></span
+              ><span class="illustration-orbit"
+                ><svg><use href="#i-orbit" /></svg></span
+              ><span class="illustration-spark spark-a"
+                ><svg><use href="#i-spark" /></svg></span
+              ><span class="illustration-spark spark-b"
+                ><svg><use href="#i-spark" /></svg
+              ></span>
+            </div>
+            <p class="empty-eyebrow">A FRESH PAGE</p>
+            <h2>There is room<br />for a hello.</h2>
+            <p id="emptyHint">Send the first message and see who joins in.</p>
+          </div>
+        </section>
+
+        <footer class="composer-area">
+          <div id="roomNotice" class="room-notice hidden"></div>
+          <div id="uploadStatus" class="upload-status hidden">
+            <span class="upload-spinner"></span
+            ><span id="uploadStatusText">Sending your file</span
+            ><span id="uploadPercent">0%</span>
+          </div>
+          <div id="attachmentDraft" class="attachment-draft hidden">
+            <span class="attachment-draft-icon"
+              ><svg><use href="#i-attach" /></svg
+            ></span>
+            <span class="attachment-draft-copy"
+              ><strong id="attachmentName"></strong
+              ><span id="attachmentSize"></span
+            ></span>
+            <button
+              id="removeAttachment"
+              class="remove-attachment"
+              type="button"
+              aria-label="Remove attached file"
+              title="Remove attached file"
+            >
+              <svg><use href="#i-close" /></svg>
+            </button>
+          </div>
+          <div id="composerBox" class="composer-box">
+            <button
+              id="attachButton"
+              class="attach-button"
+              type="button"
+              aria-label="Attach a file"
+              title="Attach a file"
+            >
+              <svg><use href="#i-attach" /></svg>
+            </button>
+            <textarea
+              id="messageInput"
+              rows="1"
+              maxlength="6000"
+              placeholder="Write something kind..."
+            ></textarea>
+            <div class="composer-end">
+              <span id="characterCount" class="character-count">0 / 6000</span
+              ><button
+                id="sendButton"
+                class="send-button"
+                type="button"
+                aria-label="Send message"
+                title="Send message"
+              >
+                <svg><use href="#i-send" /></svg>
+              </button>
+            </div>
+          </div>
+          <div class="composer-foot">
+            <span>Enter to send <i>·</i> Shift plus Enter for a new line</span
+            ><span>TXT · MP4 · MOV · DOC · DOCX · PDF · PPTX · ZIP</span>
+          </div>
+          <input
+            id="filePicker"
+            class="visually-hidden"
+            type="file"
+            accept="image/*,.txt,.mp4,.mov,.doc,.docx,.pdf,.pptx,.zip"
+            aria-label="Choose a file"
+          />
+        </footer>
+      </section>
+    </main>
+
+    <div
+      id="toastStack"
+      class="toast-stack"
+      aria-live="polite"
+      aria-atomic="false"
+    ></div>
+  </body>
+</html>
